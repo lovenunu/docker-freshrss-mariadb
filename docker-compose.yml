@@ -1,0 +1,14 @@
+freshrss:
+ image: linuxserver/freshrss
+ volumes:
+  - "./data:/config"
+ ports:
+  - "8080:80"
+ links:
+  - db:db
+
+db:
+ image: mariadb
+ environment:
+  MYSQL_ROOT_PASSWORD: %your_db_password%
+  MYSQL_DATABASE: freshrss
